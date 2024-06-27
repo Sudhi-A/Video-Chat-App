@@ -24,8 +24,8 @@ const transporter = nodemailer.createTransport({
     port : 465,
     host : "smtp.gmail.com",
     auth : {
-        user : "Sudhanshu4net@gmail.com",
-        pass : "xohi kupk aubm hpga"
+        user : "sudhanshu4net@gmail.com",
+        pass : "ycah krau mwaa cqro"
     },
     secure : true,
 })
@@ -42,14 +42,14 @@ app.post("/send-email", (req, res)=>{
     const to = req.body.to
     const url = req.body.url
     const mailData = {
-        from : "Sudhanshu4net@gmail.com",
+        from : "sudhanshu4net@gmail.com",
         to : to,
         subject : "Join the video chat with me!",
         html : `<p>Hey there, </p> <p>Come and join me for a video chat here - ${url}</p>`
     }
     transporter.sendMail(mailData, (error, info)=>{
         if(error){
-            return console.log(errror)
+            return console.log(error)
         }
         res.status(200).send({message:"Invitation sent", message_id:info.messageId})
     })
